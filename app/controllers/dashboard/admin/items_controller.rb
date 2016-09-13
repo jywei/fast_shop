@@ -1,6 +1,6 @@
 class Dashboard::Admin::ItemsController < Dashboard::Admin::AdminController
   def index
-    @items = @paginate = Item.order('id DESC').includes(:cate).paginate(:page => params[:page])
+    @items = @paginate = Item.order('id DESC').includes(:cate).paginate(page: params[:page])
   end
 
   def new
@@ -21,13 +21,13 @@ class Dashboard::Admin::ItemsController < Dashboard::Admin::AdminController
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
-    redirect_to action: :index
+    redirect_to dashboard_admin_items_path
   end
 
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to action: :index
+    redirect_to dashboard_admin_items_path
   end
 end
 
