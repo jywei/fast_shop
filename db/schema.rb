@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160913161355) do
+ActiveRecord::Schema.define(version: 20160913162524) do
 
   create_table "cates", force: :cascade do |t|
     t.string   "name"
@@ -21,13 +21,18 @@ ActiveRecord::Schema.define(version: 20160913161355) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer  "status",     limit: 1, default: 0, null: false
+    t.integer  "status",             limit: 1, default: 0, null: false
     t.string   "name"
     t.integer  "price"
     t.text     "descript"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "delete_at"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
+    t.integer  "cate_id"
   end
 
   create_table "managers", force: :cascade do |t|
