@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  resources :statics, only: :index
+  namespace :dashboard do
+    resources :items
+  end
+
+  namespace :dashboard do #使用者介面
+
+    resources :orders
+    namespace :admin do #管理者介面
+      resources :items
+      resources :cates
+      resources :orders
+      resources :users
+      resources :managers
+     end
+
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
