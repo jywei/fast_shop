@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :managers
+  devise_for :users
   resources :statics, only: :index
   namespace :dashboard do
     resources :items
