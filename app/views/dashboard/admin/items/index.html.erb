@@ -1,16 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>產品列表</h1>
+<h1>Product Listing</h1>
 
 <table>
   <thead>
     <tr>
       <th>id</th>
-      <th>類別</th>
-      <th>圖片</th>
-      <th>名稱</th>
-      <th>價格</th>
-      <th>管理</th>
+      <th>Category</th>
+      <th>Pic</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Manage</th>
     </tr>
   </thead>
 
@@ -19,12 +19,12 @@
       <tr>
         <td><%= item.id %></td>
         <td><%= item.cate.name %></td>
-        <td><%= image_tag item.cover.url(:icon), :width => 150, :height => 150 %></td>
+        <td><%= image_tag item.cover.url(:icon), width: 150, height: 150 %></td>
         <td><%= item.name %></td>
         <td><%= item.price %></td>
         <td>
-          <%= link_to '編輯', edit_dashboard_admin_item_path(item) %>
-          <%= link_to '刪除', dashboard_admin_item_path(item), method: :delete, data: { confirm: '你確定嗎?' } %>
+          <%= link_to 'Edit', edit_dashboard_admin_item_path(item) %>
+          <%= link_to 'Destroy', dashboard_admin_item_path(item), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>
