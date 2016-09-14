@@ -10,14 +10,14 @@
     float: left;
     border: 1px #ccc solid;
     border-radius: 6px;
-    width: 120px;
-    height: 180px;
+    width: 300px;
+    height: 400px;
     margin: 4px 0 0 4px;
     text-align: center;
   }
   ul.items li img{
-    width: 120px;
-    height: 120px;
+    width: 300px;
+    height: 300px;
     display: block;
     border-radius: 8px;
   }
@@ -34,7 +34,7 @@
 
 
 <script>
-  jQuery(function($){
+  $( document ).ready(function(){
    $('.add_cart').click(function(){
      $.getJSON('/items/' + $(this).attr('data-value') + '/add_cart', function(json){
       $('#cart_counter').html(json.counter);
@@ -50,7 +50,7 @@
 <ul class="items">
   <% @items.each do |item| %>
     <li>
-      <%= image_tag item.cover.url(:icon) %>
+      <%= image_tag(item.cover.url(:icon), size: "300x300") %>
       <span class="name"><%= item.name %>(<%= item.price %>)</span>
       <a href="#" class="add_cart" data-value="<%= item.id %>">Add To Cart</a>
     </li>

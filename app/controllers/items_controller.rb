@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
       session[:cart][key] += 1
     end
 
-    render :json => {counter: session[:cart].length}.to_json
+    render json: { counter: session[:cart].size }.to_json
   end
 
 

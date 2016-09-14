@@ -14,7 +14,6 @@ class Dashboard::Admin::ItemsController < Dashboard::Admin::AdminController
   def create
     @item = Item.new(item_params)
     @item.save
-    # redirect_to action: :index #這是舊版寫法
     redirect_to dashboard_admin_items_path
   end
 

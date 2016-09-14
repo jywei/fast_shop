@@ -5,14 +5,22 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <%= yield :header %>
 </head>
 <body>
+
+<h1>General Page: Public</h1>
+<div>Shopping Cart：<span id="cart_counter"><%= get_cart_count %></span></div>
+<br>
+<%= session[:cart] %>
 
 <% if current_user %>
   Hi! <%= current_user.email %>, <%= link_to "Log Out", destroy_user_session_path, method: "delete" %>
 <% else %>
   <%= link_to "Log In", new_user_session_path %>, <%= link_to "Sign Up", new_user_registration_path %>
 <% end %>
+
+<hr>
 
 <%= will_paginate @paginate if @paginate %>
 
@@ -23,6 +31,8 @@
 <hr>
 
 <%= will_paginate @paginate if @paginate %>
+
+<hr>
 
 </body>
 </html>
